@@ -6,22 +6,26 @@
 # phrase) pair costs 1 API call per workflow run, and the refresh workflow
 # runs twice a day:
 #   countries x phrases x 2 runs/day x ~30 days  <=  ~1000/month
-# Current settings: 6 x 2 x 2 x 30 = 720/month (leaves margin for manual
-# workflow_dispatch test runs). Adding one country or one phrase costs
-# +120 calls/month. Check this math before widening scope, or the quota
-# will silently run out mid-month and listings will stop refreshing.
+# Current settings: 1 x 11 x 2 x 30 = 660/month (leaves margin for manual
+# workflow_dispatch test runs). Adding a country back would multiply the
+# whole total by however many phrases are listed below — check this math
+# before widening geographic scope again.
 
 adzuna_countries:
-  - ca # Canada
-  - us # United States
-  - au # Australia
-  - gb # United Kingdom
-  - de # Germany
-  - fr # France
+  - ca # Canada only, per request — was CA/US/AU/GB/DE/FR
 
 adzuna_search_phrases:
   - "mechanical engineer"
   - "manufacturing engineer"
+  - "process engineer"
+  - "quality engineer"
+  - "industrial engineer"
+  - "product design engineer"
+  - "test engineer"
+  - "validation engineer"
+  - "mechanical designer"
+  - "mechanical engineering intern"
+  - "mechanical engineering co-op"
 
 # Job Bank Canada — official government feed, no API key, no quota limit.
 # NOC 2021 codes: 21301 = Mechanical engineers,

@@ -21,9 +21,11 @@ York University Lassonde, international student, GTA-based):
   what they do.**
 
 ## Current phase: job listing tracker
-Goal: a self-updating feed of active job/co-op/internship postings across
-CA, US, AU, UK, and a couple of EU markets, relevant to mechanical
-engineering — as a replacement for manually browsing LinkedIn.
+Goal: a self-updating feed of active job/co-op/internship postings in
+Canada, relevant to mechanical engineering — as a replacement for manually
+browsing LinkedIn. (Started as CA/US/AU/UK/DE/FR, narrowed to Canada-only
+per request — geographic scope can be widened again later in
+`config/search_config.yaml`.)
 
 Architecture:
 - `scripts/fetch_listings.py` — pulls listings from the Adzuna API (needs
@@ -43,8 +45,8 @@ Architecture:
   Google Sheets, or a text editor). The dashboard does not write back to
   it; that would create two conflicting copies of the truth.
 
-Adzuna free tier is ~1000 calls/month. Current config (6 countries × 2
-search phrases × 2 runs/day) uses ~720/month. The math and the tradeoff
+Adzuna free tier is ~1000 calls/month. Current config (Canada only × 11
+search phrases × 2 runs/day) uses ~660/month. The math and the tradeoff
 are documented in `config/search_config.yaml` — check it before widening
 scope, or the quota silently runs out mid-month.
 

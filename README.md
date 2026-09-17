@@ -5,9 +5,9 @@ Job search automation project. See `CLAUDE.md` for full project notes and constr
 ## Job listing tracker
 
 A self-updating feed of active mechanical-engineering-relevant job/co-op/
-internship postings across Canada, US, Australia, UK, Germany, and France —
-built as a LinkedIn-browsing replacement, using public job-board APIs
-instead of any LinkedIn automation (which carries ToS ban risk).
+internship postings across Canada — built as a LinkedIn-browsing
+replacement, using public job-board APIs instead of any LinkedIn
+automation (which carries ToS ban risk).
 
 - **Data**: `docs/listings.csv` — the single source of truth. Open it in
   Excel/Google Sheets and use the `status`/`notes` columns to track what
@@ -27,5 +27,7 @@ instead of any LinkedIn automation (which carries ToS ban risk).
    New repository secret** → `ADZUNA_APP_ID` and `ADZUNA_APP_KEY`.
 3. Job Bank Canada's feed needs no key — it works as soon as this is merged.
 
-Without step 1–2, the tracker still runs on Job Bank Canada data alone
-(Canada only); Adzuna adds US/AU/UK/DE/FR coverage.
+Without step 1–2, the tracker still runs on Job Bank Canada data alone;
+Adzuna adds broader private-sector Canadian job-board coverage on top of
+that (scope is Canada-only for now — see `config/search_config.yaml` to
+widen it later).
