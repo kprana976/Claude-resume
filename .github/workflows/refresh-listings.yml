@@ -1,0 +1,44 @@
+name: Refresh job listings
+
+# NOTE: GitHub only fires `schedule` triggers off the repository's default
+# branch. This will not run automatically until the branch containing this
+# file is merged to main. Use "Run workflow" (workflow_dispatch) below to
+# test it on a feature branch before that.
+on:
+  schedule:
+    - cron: "0 */12 * * *" # twice daily — see config/search_config.yaml for the quota math
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-listings
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r scripts/requirements.txt
+
+      - name: Fetch listings
+        env:
+          ADZUNA_APP_ID: ${{ secrets.ADZUNA_APP_ID }}
+          ADZUNA_APP_KEY: ${{ secrets.ADZUNA_APP_KEY }}
+        run: python scripts/fetch_listings.py
+
+      - name: Commit updated listings
+        run: |
+          git config user.name "job-tracker-bot"
+          git config user.email "actions@github.com"
+          git add docs/listings.csv docs/last_run.txt
+          git diff --cached --quiet || git commit -m "Auto-refresh job listings"
+          git push

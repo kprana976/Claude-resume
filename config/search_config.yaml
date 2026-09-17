@@ -1,0 +1,55 @@
+# Search parameters for the job listing tracker.
+# Edit this file to change what gets fetched — no code changes needed.
+#
+# IMPORTANT — Adzuna quota math:
+# Free tier is approximately 1000 calls/month. Each (country x search
+# phrase) pair costs 1 API call per workflow run, and the refresh workflow
+# runs twice a day:
+#   countries x phrases x 2 runs/day x ~30 days  <=  ~1000/month
+# Current settings: 1 x 11 x 2 x 30 = 660/month (leaves margin for manual
+# workflow_dispatch test runs). Adding a country back would multiply the
+# whole total by however many phrases are listed below — check this math
+# before widening geographic scope again.
+
+adzuna_countries:
+  - ca # Canada only, per request — was CA/US/AU/GB/DE/FR
+
+adzuna_search_phrases:
+  - "mechanical engineer"
+  - "manufacturing engineer"
+  - "process engineer"
+  - "quality engineer"
+  - "industrial engineer"
+  - "product design engineer"
+  - "test engineer"
+  - "validation engineer"
+  - "mechanical designer"
+  - "mechanical engineering intern"
+  - "mechanical engineering co-op"
+
+# Job Bank Canada — official government feed, no API key, no quota limit.
+# NOC 2021 codes: 21301 = Mechanical engineers,
+#                 22301 = Mechanical engineering technologists/technicians.
+job_bank_noc_codes:
+  - "21301"
+  - "22301"
+
+# A listing is dropped if its title+description matches any of these,
+# applied on top of whatever the source already filtered. This is a
+# heuristic, not a precise seniority filter — it will occasionally miss
+# a senior posting that doesn't use any of these words, and it will not
+# reliably catch every co-op/internship-only posting either. Expect to
+# do some manual pruning.
+level_exclude_terms:
+  - senior
+  - "sr."
+  - staff engineer
+  - principal engineer
+  - lead engineer
+  - director
+  - "head of"
+  - chief engineer
+  - manager
+
+max_days_old: 3
+results_per_page: 50
