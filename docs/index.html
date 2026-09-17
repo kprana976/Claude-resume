@@ -14,6 +14,8 @@
     --accent: #2f5fd6;
     --new-bg: #e7f0ff;
     --new-text: #1c4ed8;
+    --flag-bg: #fdecea;
+    --flag-text: #b3261e;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -25,6 +27,8 @@
       --accent: #6f95ff;
       --new-bg: #1d2b4a;
       --new-text: #9db8ff;
+      --flag-bg: #3a1f1d;
+      --flag-text: #ff8a80;
     }
   }
   * { box-sizing: border-box; }
@@ -82,6 +86,14 @@
     background: var(--new-bg);
     color: var(--new-text);
   }
+  .flag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    background: var(--flag-bg);
+    color: var(--flag-text);
+  }
   .empty, .loading { color: var(--muted); padding: 24px; text-align: center; }
   .table-wrap { overflow-x: auto; }
   .note { color: var(--muted); font-size: 0.8rem; margin-top: 10px; }
@@ -95,8 +107,12 @@
     <div class="controls">
       <input type="text" id="search" placeholder="Search title / company / location..." />
       <select id="countryFilter"><option value="">All countries</option></select>
+      <select id="industryFilter"><option value="">All industries</option></select>
       <select id="sourceFilter"><option value="">All sources</option></select>
       <select id="statusFilter"><option value="">All statuses</option></select>
+      <label style="display:flex; align-items:center; gap:6px; font-size:0.85rem; color:var(--muted);">
+        <input type="checkbox" id="hideFlagged" /> Hide eligibility-flagged
+      </label>
     </div>
   </div>
 
@@ -109,12 +125,15 @@
           <th data-key="company">Company</th>
           <th data-key="location">Location</th>
           <th data-key="country">Country</th>
+          <th data-key="industry">Industry</th>
+          <th data-key="salary_text">Salary</th>
           <th data-key="source">Source</th>
+          <th data-key="eligibility_flag">Eligibility</th>
           <th data-key="status">Status</th>
         </tr>
       </thead>
       <tbody id="rows">
-        <tr><td class="loading" colspan="7">Loading listings...</td></tr>
+        <tr><td class="loading" colspan="10">Loading listings...</td></tr>
       </tbody>
     </table>
   </div>
@@ -144,6 +163,7 @@
 
   function populateFilterOptions() {
     const countries = [...new Set(allRows.map(r => r.country).filter(Boolean))].sort();
+    const industries = [...new Set(allRows.map(r => r.industry).filter(Boolean))].sort();
     const sources = [...new Set(allRows.map(r => r.source).filter(Boolean))].sort();
     const statuses = [...new Set(allRows.map(r => r.status).filter(Boolean))].sort();
 
@@ -157,6 +177,7 @@
       });
     };
     fill("countryFilter", countries);
+    fill("industryFilter", industries);
     fill("sourceFilter", sources);
     fill("statusFilter", statuses);
   }
@@ -165,8 +186,10 @@
     return {
       search: document.getElementById("search").value.trim().toLowerCase(),
       country: document.getElementById("countryFilter").value,
+      industry: document.getElementById("industryFilter").value,
       source: document.getElementById("sourceFilter").value,
       status: document.getElementById("statusFilter").value,
+      hideFlagged: document.getElementById("hideFlagged").checked,
     };
   }
 
@@ -174,8 +197,10 @@
     const f = currentFilters();
     let rows = allRows.filter(r => {
       if (f.country && r.country !== f.country) return false;
+      if (f.industry && r.industry !== f.industry) return false;
       if (f.source && r.source !== f.source) return false;
       if (f.status && r.status !== f.status) return false;
+      if (f.hideFlagged && r.eligibility_flag) return false;
       if (f.search) {
         const hay = `${r.title} ${r.company} ${r.location}`.toLowerCase();
         if (!hay.includes(f.search)) return false;
@@ -192,7 +217,7 @@
     const tbody = document.getElementById("rows");
     tbody.innerHTML = "";
     if (rows.length === 0) {
-      tbody.innerHTML = '<tr><td class="empty" colspan="7">No listings match these filters.</td></tr>';
+      tbody.innerHTML = '<tr><td class="empty" colspan="10">No listings match these filters.</td></tr>';
       return;
     }
 
@@ -204,7 +229,10 @@
         <td>${r.company || ""}</td>
         <td>${r.location || ""}</td>
         <td>${r.country || ""}</td>
+        <td>${r.industry || ""}</td>
+        <td>${r.salary_text || (r.salary_min || r.salary_max ? `${r.salary_min||"?"}-${r.salary_max||"?"}` : "")}</td>
         <td>${r.source || ""}</td>
+        <td>${r.eligibility_flag ? `<span class="flag" title="matched: ${r.eligibility_flag}">check</span>` : ""}</td>
         <td><span class="badge">${r.status || ""}</span></td>
       `;
       tbody.appendChild(tr);
@@ -220,7 +248,7 @@
     });
   });
 
-  ["search", "countryFilter", "sourceFilter", "statusFilter"].forEach(id => {
+  ["search", "countryFilter", "industryFilter", "sourceFilter", "statusFilter", "hideFlagged"].forEach(id => {
     document.getElementById(id).addEventListener("input", render);
   });
 
@@ -234,7 +262,7 @@
     })
     .catch(() => {
       document.getElementById("rows").innerHTML =
-        '<tr><td class="empty" colspan="7">Could not load listings.csv yet — it appears after the first workflow run.</td></tr>';
+        '<tr><td class="empty" colspan="10">Could not load listings.csv yet — it appears after the first workflow run.</td></tr>';
     });
 
   fetch("./last_run.txt", { cache: "no-store" })
