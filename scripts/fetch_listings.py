@@ -31,7 +31,7 @@ LAST_RUN_PATH = ROOT / "docs" / "last_run.txt"
 CSV_FIELDS = [
     "id", "source", "title", "company", "location", "country", "industry",
     "posted_date", "first_seen", "last_seen", "salary_min", "salary_max",
-    "eligibility_flag", "url", "status", "notes",
+    "salary_text", "eligibility_flag", "url", "status", "notes",
 ]
 
 YEARS_EXPERIENCE_RE = re.compile(r"\b([4-9]|1\d)\+?\s*(?:years|yrs)\b", re.IGNORECASE)
@@ -43,6 +43,17 @@ def find_eligibility_flag(text, flag_terms):
         if term.lower() in text_l:
             return term
     return ""
+
+
+def extract_summary_field(summary_html, label):
+    # Job Bank Canada packs structured fields as "<strong>Label:</strong> value<br />"
+    # inside a single summary blob rather than separate XML elements — confirmed
+    # against a real feed entry (see commit history), not guessed.
+    match = re.search(
+        rf"<strong>\s*{re.escape(label)}\s*:?\s*</strong>\s*(.*?)\s*(?:<br|$)",
+        summary_html, re.IGNORECASE | re.DOTALL,
+    )
+    return match.group(1).strip() if match else ""
 
 
 def load_config():
@@ -120,6 +131,7 @@ def fetch_adzuna(config):
                     "posted_date": (job.get("created") or "")[:10],
                     "salary_min": job.get("salary_min", ""),
                     "salary_max": job.get("salary_max", ""),
+                    "salary_text": "",
                     "eligibility_flag": find_eligibility_flag(f"{title} {description}", flag_terms),
                     "url": link,
                 })
@@ -133,7 +145,6 @@ def fetch_job_bank_canada(config):
     rows = []
     ns = {"atom": "http://www.w3.org/2005/Atom"}
     flag_terms = config.get("eligibility_flag_terms", [])
-    debug_dumped = False
 
     for noc in config.get("job_bank_noc_codes", []):
         url = "https://www.jobbank.gc.ca/jobsearch/feed/jobSearchRSSfeed"
@@ -152,43 +163,36 @@ def fetch_job_bank_canada(config):
         entries = root.findall("atom:entry", ns)
         print(f"Job Bank Canada [NOC {noc}]: {len(entries)} raw entries")
 
-        if not debug_dumped and entries:
-            # One-time raw dump so we can see the feed's real field names
-            # instead of guessing. Safe to remove once company/location
-            # parsing below is confirmed correct against real output.
-            print("DEBUG first Job Bank entry raw XML:", file=sys.stderr)
-            print(ElementTree.tostring(entries[0], encoding="unicode"), file=sys.stderr)
-            debug_dumped = True
-
         for entry in entries:
             title_el = entry.find("atom:title", ns)
             link_el = entry.find("atom:link", ns)
             updated_el = entry.find("atom:updated", ns)
-            author_el = entry.find("atom:author/atom:name", ns)
             summary_el = entry.find("atom:summary", ns)
-            category_el = entry.find("atom:category", ns)
 
             title = (title_el.text or "").strip() if title_el is not None else ""
             link = link_el.get("href") if link_el is not None else ""
             updated = (updated_el.text or "")[:10] if updated_el is not None else ""
-            company = (author_el.text or "").strip() if author_el is not None else ""
             summary = (summary_el.text or "") if summary_el is not None else ""
-            industry = category_el.get("label", category_el.get("term", "")) if category_el is not None else ""
 
             if not title or not link:
                 continue
+
+            company = extract_summary_field(summary, "Employer")
+            location = extract_summary_field(summary, "Location")
+            salary_text = extract_summary_field(summary, "Salary")
 
             rows.append({
                 "id": make_id("job_bank_canada", link),
                 "source": "job_bank_canada",
                 "title": title,
                 "company": company,
-                "location": "",
+                "location": location,
                 "country": "CA",
-                "industry": industry,
+                "industry": "",
                 "posted_date": updated,
                 "salary_min": "",
                 "salary_max": "",
+                "salary_text": salary_text,
                 "eligibility_flag": find_eligibility_flag(f"{title} {summary}", flag_terms),
                 "url": link,
             })
@@ -214,6 +218,7 @@ def merge(existing_by_id, new_rows, today):
             existing["company"] = row["company"] or existing.get("company", "")
             existing["location"] = row["location"] or existing.get("location", "")
             existing["industry"] = row.get("industry") or existing.get("industry", "")
+            existing["salary_text"] = row.get("salary_text") or existing.get("salary_text", "")
             existing["eligibility_flag"] = row.get("eligibility_flag", existing.get("eligibility_flag", ""))
         else:
             row["first_seen"] = today

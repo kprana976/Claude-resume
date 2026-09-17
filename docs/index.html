@@ -126,13 +126,14 @@
           <th data-key="location">Location</th>
           <th data-key="country">Country</th>
           <th data-key="industry">Industry</th>
+          <th data-key="salary_text">Salary</th>
           <th data-key="source">Source</th>
           <th data-key="eligibility_flag">Eligibility</th>
           <th data-key="status">Status</th>
         </tr>
       </thead>
       <tbody id="rows">
-        <tr><td class="loading" colspan="9">Loading listings...</td></tr>
+        <tr><td class="loading" colspan="10">Loading listings...</td></tr>
       </tbody>
     </table>
   </div>
@@ -216,7 +217,7 @@
     const tbody = document.getElementById("rows");
     tbody.innerHTML = "";
     if (rows.length === 0) {
-      tbody.innerHTML = '<tr><td class="empty" colspan="9">No listings match these filters.</td></tr>';
+      tbody.innerHTML = '<tr><td class="empty" colspan="10">No listings match these filters.</td></tr>';
       return;
     }
 
@@ -229,6 +230,7 @@
         <td>${r.location || ""}</td>
         <td>${r.country || ""}</td>
         <td>${r.industry || ""}</td>
+        <td>${r.salary_text || (r.salary_min || r.salary_max ? `${r.salary_min||"?"}-${r.salary_max||"?"}` : "")}</td>
         <td>${r.source || ""}</td>
         <td>${r.eligibility_flag ? `<span class="flag" title="matched: ${r.eligibility_flag}">check</span>` : ""}</td>
         <td><span class="badge">${r.status || ""}</span></td>
@@ -260,7 +262,7 @@
     })
     .catch(() => {
       document.getElementById("rows").innerHTML =
-        '<tr><td class="empty" colspan="9">Could not load listings.csv yet — it appears after the first workflow run.</td></tr>';
+        '<tr><td class="empty" colspan="10">Could not load listings.csv yet — it appears after the first workflow run.</td></tr>';
     });
 
   fetch("./last_run.txt", { cache: "no-store" })
