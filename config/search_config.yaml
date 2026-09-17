@@ -51,5 +51,26 @@ level_exclude_terms:
   - chief engineer
   - manager
 
+# A listing gets a non-empty eligibility_flag (not dropped, just flagged —
+# some of these hire internationally despite the wording) if its title or
+# description matches any of these. Meant to surface work-authorization
+# terms fast so you're not reading 15 postings to find the 3 that mention
+# citizenship/sponsorship requirements.
+eligibility_flag_terms:
+  - "canadian citizen"
+  - "canadian citizenship"
+  - "permanent resident"
+  - "security clearance"
+  - "secret clearance"
+  - "no sponsorship"
+  - "not able to sponsor"
+  - "unable to sponsor"
+  - "without sponsorship"
+  - "must be legally entitled to work"
+  - "must be eligible to work"
+  - "government of canada security"
+  - "controlled goods"
+  - "itar"
+
 max_days_old: 3
 results_per_page: 50
