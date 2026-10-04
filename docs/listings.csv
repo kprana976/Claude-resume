@@ -1,8 +1,9 @@
 id,source,title,company,location,country,posted_date,first_seen,last_seen,salary_min,salary_max,url,status,notes
 job_bank_canada:a939f2bbf24d67f8,job_bank_canada,"specialist, HVAC (heating, ventilation and air conditioning) systems",,,CA,2026-10-03,2026-10-04,2026-10-04,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50419372,New,
-job_bank_canada:5968e1ce9f7821a3,job_bank_canada,mechanical engineer,,,CA,2026-10-02,2026-10-03,2026-10-03,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50414463,New,
+job_bank_canada:5c0fa6dc5231e390,job_bank_canada,building systems engineer,,,CA,2026-10-04,2026-10-04,2026-10-04,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50420167,New,
+job_bank_canada:5968e1ce9f7821a3,job_bank_canada,mechanical engineer,,,CA,2026-10-02,2026-10-03,2026-10-04,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50414463,New,
 job_bank_canada:3737ed62f377c18f,job_bank_canada,mechanical engineering technologist,,,CA,2026-10-02,2026-10-03,2026-10-04,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50412157,New,
-job_bank_canada:f6219cfe362f781a,job_bank_canada,acoustical engineer,,,CA,2026-10-02,2026-10-03,2026-10-03,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50414741,New,
+job_bank_canada:f6219cfe362f781a,job_bank_canada,acoustical engineer,,,CA,2026-10-02,2026-10-03,2026-10-04,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50414741,New,
 job_bank_canada:0f4f9e254d387db1,job_bank_canada,"heating, ventilation and air conditioning (HVAC) systems specialist",,,CA,2026-10-01,2026-10-03,2026-10-03,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50414859,New,
 job_bank_canada:65bed3484e56aef2,job_bank_canada,mechanical engineer,,,CA,2026-09-30,2026-10-02,2026-10-02,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50407896,New,
 job_bank_canada:17016041d700944f,job_bank_canada,mechanical engineer,,,CA,2026-09-30,2026-10-02,2026-10-02,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50407800,New,
