@@ -1,10 +1,11 @@
 id,source,title,company,location,country,posted_date,first_seen,last_seen,salary_min,salary_max,url,status,notes
-job_bank_canada:5754f3e5364c6b92,job_bank_canada,aerospace engineering technologist,,,CA,2026-10-25,2026-10-25,2026-10-25,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50576258,New,
+job_bank_canada:fbefdf16c1aa03b0,job_bank_canada,"heating, ventilation and air conditioning (HVAC) systems specialist",,,CA,2026-10-25,2026-10-26,2026-10-26,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50579523,New,
+job_bank_canada:5754f3e5364c6b92,job_bank_canada,aerospace engineering technologist,,,CA,2026-10-25,2026-10-25,2026-10-26,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50576258,New,
 job_bank_canada:5f8b963d6430b44c,job_bank_canada,mechanical engineer,,,CA,2026-10-23,2026-10-24,2026-10-25,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50568907,New,
 job_bank_canada:a2a49615b807b501,job_bank_canada,mechanical engineer,,,CA,2026-10-23,2026-10-24,2026-10-25,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50568915,New,
 job_bank_canada:5ba0f37e73872eda,job_bank_canada,project engineer  - building systems,,,CA,2026-10-23,2026-10-24,2026-10-25,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50567045,New,
 job_bank_canada:18fd0bf8ccf3f0d0,job_bank_canada,drone technician,,,CA,2026-10-23,2026-10-24,2026-10-25,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50569242,New,
-job_bank_canada:a484a904e562a184,job_bank_canada,building systems engineer,,,CA,2026-10-24,2026-10-24,2026-10-25,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50571550,New,
+job_bank_canada:a484a904e562a184,job_bank_canada,building systems engineer,,,CA,2026-10-24,2026-10-24,2026-10-26,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50571550,New,
 job_bank_canada:bae0aebb2682bdc4,job_bank_canada,"heating, ventilation and air conditioning (HVAC) systems specialist",,,CA,2026-10-22,2026-10-24,2026-10-24,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50571531,New,
 job_bank_canada:4423f7993594576f,job_bank_canada,"heating, ventilation and air conditioning (HVAC) systems specialist",,,CA,2026-10-22,2026-10-24,2026-10-24,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50571529,New,
 job_bank_canada:b7f567b95f6a10fe,job_bank_canada,"heating, ventilation and air conditioning (HVAC) systems specialist",,,CA,2026-10-22,2026-10-24,2026-10-24,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50571534,New,
