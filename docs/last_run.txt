@@ -1,3 +1,3 @@
-2026-10-29T18:18:31.086760+00:00
-total_listings=299
-fetched_this_run=16
+2026-10-30T05:15:20.922596+00:00
+total_listings=302
+fetched_this_run=15
