@@ -1,4 +1,11 @@
 id,source,title,company,location,country,posted_date,first_seen,last_seen,salary_min,salary_max,url,status,notes
+job_bank_canada:d9f2a7d29613d053,job_bank_canada,mechanical engineer,,,CA,2026-11-03,2026-11-03,2026-11-03,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50650162,New,
+job_bank_canada:6e9e93d0fc17d190,job_bank_canada,mechanical engineer,,,CA,2026-11-03,2026-11-03,2026-11-03,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50650171,New,
+job_bank_canada:211493b86df97f5e,job_bank_canada,mechanical engineer,,,CA,2026-11-03,2026-11-03,2026-11-03,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50650073,New,
+job_bank_canada:03cd93a72d8ee0de,job_bank_canada,refrigeration and air conditioning mechanic (non-construction),,,CA,2026-11-03,2026-11-03,2026-11-03,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50648936,New,
+job_bank_canada:49e66d59b808f8c4,job_bank_canada,building systems engineer,,,CA,2026-11-03,2026-11-03,2026-11-03,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50648947,New,
+job_bank_canada:677743bd4ce4ede0,job_bank_canada,drone technician,,,CA,2026-11-03,2026-11-03,2026-11-03,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50651069,New,
+job_bank_canada:6f53471313f0a2b4,job_bank_canada,"heating, ventilation and air conditioning (HVAC) systems specialist",,,CA,2026-11-01,2026-11-03,2026-11-03,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50647625,New,
 job_bank_canada:dcb705e67ca6eeb8,job_bank_canada,mechanical design engineer,,,CA,2026-11-02,2026-11-02,2026-11-03,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50640084,New,
 job_bank_canada:2dc019ace3bd3f21,job_bank_canada,mechanical engineer,,,CA,2026-11-02,2026-11-02,2026-11-03,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50639520,New,
 job_bank_canada:bc935b33e3fad06f,job_bank_canada,acoustical engineer,,,CA,2026-11-02,2026-11-02,2026-11-03,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50635526,New,
