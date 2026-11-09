@@ -1,5 +1,13 @@
 id,source,title,company,location,country,posted_date,first_seen,last_seen,salary_min,salary_max,url,status,notes
 job_bank_canada:d08f7f36f7586079,job_bank_canada,mechanical engineering technician,,,CA,2026-11-08,2026-11-09,2026-11-09,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50687393,New,
+job_bank_canada:742e225e4c088e6e,job_bank_canada,design engineer - mechanical,,,CA,2026-11-09,2026-11-09,2026-11-09,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50694177,New,
+job_bank_canada:464c92e0396c3bc0,job_bank_canada,mechanical engineer,,,CA,2026-11-09,2026-11-09,2026-11-09,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50694178,New,
+job_bank_canada:703c44e7b4f32d4b,job_bank_canada,mechanical engineer,,,CA,2026-11-09,2026-11-09,2026-11-09,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50691965,New,
+job_bank_canada:6b35ec27dff8ef65,job_bank_canada,refrigeration and air conditioning mechanic (non-construction),,,CA,2026-11-08,2026-11-09,2026-11-09,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50685467,New,
+job_bank_canada:eaa6b25274e37653,job_bank_canada,mechanical power engineer,,,CA,2026-11-07,2026-11-09,2026-11-09,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50684837,New,
+job_bank_canada:ddd8edfd9b3adbda,job_bank_canada,cryogenics engineer,,,CA,2026-11-07,2026-11-09,2026-11-09,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50684895,New,
+job_bank_canada:699bf13fdf4c2f5d,job_bank_canada,mechanical technologist,,,CA,2026-11-09,2026-11-09,2026-11-09,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50693229,New,
+job_bank_canada:b4d9f8345ff076c3,job_bank_canada,mechanical engineering technologist,,,CA,2026-11-09,2026-11-09,2026-11-09,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50692621,New,
 job_bank_canada:3512b7d70fe03a37,job_bank_canada,mechanical engineer,,,CA,2026-11-06,2026-11-07,2026-11-08,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50678345,New,
 job_bank_canada:f2a6d20e714ebac0,job_bank_canada,mechanical engineer,,,CA,2026-11-06,2026-11-07,2026-11-08,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50677551,New,
 job_bank_canada:984712b0ecd5a942,job_bank_canada,mechanical engineering technician,,,CA,2026-11-07,2026-11-07,2026-11-09,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50681320,New,
