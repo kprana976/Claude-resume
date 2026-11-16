@@ -1,8 +1,9 @@
 id,source,title,company,location,country,posted_date,first_seen,last_seen,salary_min,salary_max,url,status,notes
-job_bank_canada:adce33adbecae18e,job_bank_canada,mechanical engineer,,,CA,2026-11-14,2026-11-15,2026-11-15,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50730592,New,
-job_bank_canada:c3d30e8eaed77ced,job_bank_canada,house automation technician,,,CA,2026-11-13,2026-11-15,2026-11-15,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50726195,New,
+job_bank_canada:b36152ea2cffd8d8,job_bank_canada,mechanical engineering technician,,,CA,2026-11-15,2026-11-16,2026-11-16,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50733903,New,
+job_bank_canada:adce33adbecae18e,job_bank_canada,mechanical engineer,,,CA,2026-11-14,2026-11-15,2026-11-16,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50730592,New,
+job_bank_canada:c3d30e8eaed77ced,job_bank_canada,house automation technician,,,CA,2026-11-13,2026-11-15,2026-11-16,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50726195,New,
 job_bank_canada:f7bfb3c932877f4d,job_bank_canada,drone technician,,,CA,2026-11-13,2026-11-14,2026-11-15,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50724398,New,
-job_bank_canada:93adbbaaf99274e6,job_bank_canada,acoustical engineer,,,CA,2026-11-14,2026-11-14,2026-11-15,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50727499,New,
+job_bank_canada:93adbbaaf99274e6,job_bank_canada,acoustical engineer,,,CA,2026-11-14,2026-11-14,2026-11-16,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50727499,New,
 job_bank_canada:fa14a9f972549715,job_bank_canada,robotics technician,,,CA,2026-11-12,2026-11-13,2026-11-14,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50717274,New,
 job_bank_canada:fdaa718c161113f0,job_bank_canada,mechanical engineering technician,,,CA,2026-11-12,2026-11-13,2026-11-14,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50716457,New,
 job_bank_canada:a103cf6d9547bb45,job_bank_canada,drone technician,,,CA,2026-11-12,2026-11-13,2026-11-14,,,https://www.jobbank.gc.ca/jobsearch/jobposting/50716449,New,
