@@ -1,3 +1,3 @@
-2026-11-26T21:14:48.367893+00:00
-total_listings=501
-fetched_this_run=19
+2026-11-27T07:45:54.026358+00:00
+total_listings=502
+fetched_this_run=16
